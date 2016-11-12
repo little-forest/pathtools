@@ -16,7 +16,7 @@ import org.eclipse.core.resources.IResource;
 
 /**
  * 指定されたリソースのワークスペース内相対パスをクリップボードにコピーするハンドラです。<br />
- * 
+ *
  * @author y-komori
  */
 public class CopyWorkspaceRelativePathHandler extends AbstractPathHandler {
@@ -30,7 +30,10 @@ public class CopyWorkspaceRelativePathHandler extends AbstractPathHandler {
             String workspacePath = resource.getWorkspace().getRoot().getLocation()
                     .toPortableString();
             String resourcePath = resource.getLocation().toPortableString();
-            String relPath = resourcePath.substring(workspacePath.length());
+            String relPath = resourcePath;
+            if (resourcePath.startsWith(workspacePath)) {
+                relPath = resourcePath.substring(workspacePath.length());
+            }
             buf.append(relPath);
             buf.append(SEP);
         }
