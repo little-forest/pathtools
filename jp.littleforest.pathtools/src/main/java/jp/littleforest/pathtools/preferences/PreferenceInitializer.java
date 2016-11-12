@@ -9,7 +9,7 @@
 package jp.littleforest.pathtools.preferences;
 
 import static jp.littleforest.pathtools.Constants.*;
-import jp.littleforest.pathtools.Activator;
+import jp.littleforest.pathtools.PathToolsPlugin;
 
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -26,7 +26,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
      */
     @Override
     public void initializeDefaultPreferences() {
-        IPreferenceStore store = Activator.getDefault().getPreferenceStore();
+        IPreferenceStore store = PathToolsPlugin.getDefault().getPreferenceStore();
         String osName = System.getProperty("os.name").toLowerCase();
         if (osName.indexOf("windows") != -1) {
             store.setDefault(P_OPEN_FOLDER_CMD, P_OPEN_FOLDER_CMD_DEFAULT_WIN);

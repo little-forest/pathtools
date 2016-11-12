@@ -16,7 +16,7 @@ import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
-import jp.littleforest.pathtools.Activator;
+import jp.littleforest.pathtools.PathToolsPlugin;
 
 /**
  * 本プラグインのプリファレンスページです。<br />
@@ -31,7 +31,7 @@ IWorkbenchPreferencePage {
      */
     public PathToolsPreferencePage() {
         super(GRID);
-        IPreferenceStore store = Activator.getDefault().getPreferenceStore();
+        IPreferenceStore store = PathToolsPlugin.getDefault().getPreferenceStore();
         setPreferenceStore(store);
         setDescription("");
     }

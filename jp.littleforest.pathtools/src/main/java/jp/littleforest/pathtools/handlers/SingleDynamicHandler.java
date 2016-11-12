@@ -8,7 +8,7 @@
  *****************************************************************************/
 package jp.littleforest.pathtools.handlers;
 
-import jp.littleforest.pathtools.Activator;
+import jp.littleforest.pathtools.PathToolsPlugin;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.jface.viewers.ISelection;
@@ -31,7 +31,7 @@ public abstract class SingleDynamicHandler extends DynamicHandler {
      */
     @Override
     public boolean isEnabled() {
-        IWorkbenchPartSite activeSite = Activator.getDefault().getActiveSite();
+        IWorkbenchPartSite activeSite = PathToolsPlugin.getDefault().getActiveSite();
 
         this.selected = null;
         this.selectedClass = null;

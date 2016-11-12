@@ -10,7 +10,7 @@ package jp.littleforest.pathtools.handlers;
 
 import java.io.File;
 
-import jp.littleforest.pathtools.Activator;
+import jp.littleforest.pathtools.PathToolsPlugin;
 import jp.littleforest.pathtools.util.IResourceUtil;
 
 import org.eclipse.core.commands.ExecutionEvent;
@@ -46,9 +46,9 @@ public abstract class AbstractOpenHandler extends SingleDynamicHandler {
                 command = command.replace(PATH_HOLDER, path);
             }
             Runtime.getRuntime().exec(command);
-            Activator.logInfo("Command executed. : " + command);
+            PathToolsPlugin.logInfo("Command executed. : " + command);
         } catch (Throwable ex) {
-            Activator.logError("Unable to run command. : " + command, ex);
+            PathToolsPlugin.logError("Unable to run command. : " + command, ex);
         }
     }
 
@@ -124,7 +124,7 @@ public abstract class AbstractOpenHandler extends SingleDynamicHandler {
             String command = getCommandLine();
             execRuntime(command, directory.getAbsolutePath());
         } else {
-            Activator.logError("Directory could'nt find. : " + selected.toString());
+            PathToolsPlugin.logError("Directory could'nt find. : " + selected.toString());
         }
 
         return null;

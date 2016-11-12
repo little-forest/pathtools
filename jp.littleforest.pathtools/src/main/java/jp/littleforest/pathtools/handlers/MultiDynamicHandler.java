@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import jp.littleforest.pathtools.Activator;
+import jp.littleforest.pathtools.PathToolsPlugin;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.jface.viewers.ISelection;
@@ -35,7 +35,7 @@ public abstract class MultiDynamicHandler<E extends IAdaptable> extends DynamicH
     @Override
     @SuppressWarnings("unchecked")
     public boolean isEnabled() {
-        IWorkbenchPartSite activeSite = Activator.getDefault().getActiveSite();
+        IWorkbenchPartSite activeSite = PathToolsPlugin.getDefault().getActiveSite();
 
         this.selectedElements.clear();
         this.selectedClass = null;

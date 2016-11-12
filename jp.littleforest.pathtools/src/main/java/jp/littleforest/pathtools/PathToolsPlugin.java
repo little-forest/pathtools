@@ -28,19 +28,18 @@ import org.osgi.framework.BundleContext;
  *
  * @author y-komori
  */
-public class Activator extends AbstractUIPlugin implements IStartup {
+public class PathToolsPlugin extends AbstractUIPlugin implements IStartup {
 
     // The plug-in ID
     public static final String PLUGIN_ID = "jp.littleforest.pathtools"; //$NON-NLS-1$
 
     // The shared instance
-    private static Activator plugin;
+    private static PathToolsPlugin plugin;
 
     /**
-     * {@link Activator} を構築します。<br />
+     * {@link PathToolsPlugin} を構築します。<br />
      */
-    public Activator() {
-        System.err.println(PLUGIN_ID + " : constructor");
+    public PathToolsPlugin() {
     }
 
     /*
@@ -71,7 +70,7 @@ public class Activator extends AbstractUIPlugin implements IStartup {
      *
      * @return the shared instance
      */
-    public static Activator getDefault() {
+    public static PathToolsPlugin getDefault() {
         return plugin;
     }
 
@@ -130,7 +129,7 @@ public class Activator extends AbstractUIPlugin implements IStartup {
     }
 
     public static void log(int severity, String message, Throwable throwable) {
-        ILog log = Activator.getDefault().getLog();
+        ILog log = PathToolsPlugin.getDefault().getLog();
         Status status = new Status(severity, PLUGIN_ID, message, throwable);
         log.log(status);
     }

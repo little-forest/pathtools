@@ -9,7 +9,7 @@
 package jp.littleforest.pathtools.handlers;
 
 import static jp.littleforest.pathtools.Constants.*;
-import jp.littleforest.pathtools.Activator;
+import jp.littleforest.pathtools.PathToolsPlugin;
 
 /**
  * コマンドプロンプトを開くコマンドのためのハンドラです。<br />
@@ -31,6 +31,6 @@ public class OpenPromptHandler extends AbstractOpenHandler {
      */
     @Override
     protected String getCommandLine() {
-        return Activator.getDefault().getPreferenceStore().getString(P_OPEN_PROMPT_CMD);
+        return PathToolsPlugin.getDefault().getPreferenceStore().getString(P_OPEN_PROMPT_CMD);
     }
 }
