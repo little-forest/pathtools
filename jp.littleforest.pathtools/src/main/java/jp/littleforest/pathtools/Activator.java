@@ -22,10 +22,10 @@ import org.osgi.framework.BundleContext;
 
 /**
  * The activator class controls the plug-in life cycle
- * 
+ *
  * 本プラグインでは、visibleWhen 判定をハンドラで独自実装しており、プラグインを遅延起動させないため org.eclipse.ui.startup
  * 拡張を使用しています。(遅延起動にすると、ポップアップメニューの初回表示時にハンドラの isEnabled() メソッドが呼びされないため)
- * 
+ *
  * @author y-komori
  */
 public class Activator extends AbstractUIPlugin implements IStartup {
@@ -40,12 +40,14 @@ public class Activator extends AbstractUIPlugin implements IStartup {
      * {@link Activator} を構築します。<br />
      */
     public Activator() {
+        System.err.println(PLUGIN_ID + " : constructor");
     }
 
     /*
-     * (non-Javadoc)
-     * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
-     */
+    * (non-Javadoc)
+    * @see
+    org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
+    */
     @Override
     public void start(BundleContext context) throws Exception {
         super.start(context);
@@ -54,9 +56,10 @@ public class Activator extends AbstractUIPlugin implements IStartup {
     }
 
     /*
-     * (non-Javadoc)
-     * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
-     */
+    * (non-Javadoc)
+    * @see
+    org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
+    */
     @Override
     public void stop(BundleContext context) throws Exception {
         plugin = null;
@@ -73,10 +76,11 @@ public class Activator extends AbstractUIPlugin implements IStartup {
     }
 
     /**
-     * Returns an image descriptor for the image file at the given plug-in relative path
+     * Returns an image descriptor for the image file at the given plug-in
+     * relative path
      *
      * @param path
-     *            the path
+     *        the path
      * @return the image descriptor
      */
     public static ImageDescriptor getImageDescriptor(String path) {
@@ -89,8 +93,7 @@ public class Activator extends AbstractUIPlugin implements IStartup {
      * @return {@link IWorkbenchPartSite}、見つからなかった場合は {@code null}
      */
     public IWorkbenchPartSite getActiveSite() {
-        IWorkbenchWindow window = plugin.getWorkbench()
-                .getActiveWorkbenchWindow();
+        IWorkbenchWindow window = plugin.getWorkbench().getActiveWorkbenchWindow();
         if (window != null) {
             IWorkbenchPage activePage = window.getActivePage();
             if (activePage != null) {
@@ -104,10 +107,10 @@ public class Activator extends AbstractUIPlugin implements IStartup {
     }
 
     /* (non-Javadoc)
-     * @see org.eclipse.ui.IStartup#earlyStartup()
-     */
+    * @see org.eclipse.ui.IStartup#earlyStartup()
+    */
     public void earlyStartup() {
-        logInfo(PLUGIN_ID + " Startup ok.");
+        logInfo("Eary startup ok.");
     }
 
     public static void logError(String message) {

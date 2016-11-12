@@ -211,6 +211,8 @@
    </extension>
    <extension
          point="org.eclipse.ui.startup">
-      <startup></startup>
+      <startup
+            class="jp.littleforest.pathtools.Activator">
+      </startup>
    </extension>
 </plugin>

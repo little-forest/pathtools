@@ -9,16 +9,18 @@
 package jp.littleforest.pathtools.preferences;
 
 import static jp.littleforest.pathtools.Constants.*;
-import jp.littleforest.pathtools.Activator;
 
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
+import jp.littleforest.pathtools.Activator;
+
 /**
  * 本プラグインのプリファレンスページです。<br />
- * 
+ *
  * @author y-komori
  */
 public class PathToolsPreferencePage extends FieldEditorPreferencePage implements
@@ -29,7 +31,8 @@ IWorkbenchPreferencePage {
      */
     public PathToolsPreferencePage() {
         super(GRID);
-        setPreferenceStore(Activator.getDefault().getPreferenceStore());
+        IPreferenceStore store = Activator.getDefault().getPreferenceStore();
+        setPreferenceStore(store);
         setDescription("");
     }
 
