@@ -35,5 +35,6 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
             store.setDefault(P_OPEN_FOLDER_CMD, "");
             store.setDefault(P_OPEN_PROMPT_CMD, "");
         }
+        store.setDefault(P_FONT_SIZE_CHANGE_HISTORY, 0);
     }
 }

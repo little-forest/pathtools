@@ -28,4 +28,6 @@ public interface Constants {
     public static final String P_OPEN_PROMPT_CMD = "jp.littleforest.pathtools.preps.P_OPEN_PROMPT_CMD";
 
     public static final String P_OPEN_PROMPT_CMD_DEFAULT_WIN = "cmd /K start cd /D \"{path}\"";
+
+    public static final String P_FONT_SIZE_CHANGE_HISTORY = "jp.littleforest.pathtools.preps.P_FONT_SIZE_CHANGE_HISTORY";
 }

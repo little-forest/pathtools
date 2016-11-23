@@ -56,6 +56,24 @@
             id="jp.littleforest.pathtools.commands.OpenWorkspace"
             name="OpenWorkspace">
       </command>
+      <command
+            categoryId="jp.littleforest.pathtools.categories.PathTools"
+            description="フォントサイズを大きくします。"
+            id="jp.littleforest.pathtools.commands.IncreaseFont"
+            name="IncreaseFont">
+      </command>
+      <command
+            categoryId="jp.littleforest.pathtools.categories.PathTools"
+            description="フォントサイズを小さくします。"
+            id="jp.littleforest.pathtools.commands.DecreaseFont"
+            name="DecreaseFont">
+      </command>
+      <command
+            categoryId="jp.littleforest.pathtools.categories.PathTools"
+            description="フォントサイズを元に戻します。"
+            id="jp.littleforest.pathtools.commands.ResetFont"
+            name="ResetFont">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.handlers">
@@ -90,6 +108,18 @@
       <handler
             class="jp.littleforest.pathtools.handlers.CopyQualifiedNameHandler"
             commandId="jp.littleforest.pathtools.commands.CopyQualifiedName">
+      </handler>
+      <handler
+            class="jp.littleforest.pathtools.handlers.IncreaseFontHandler"
+            commandId="jp.littleforest.pathtools.commands.IncreaseFont">
+      </handler>
+      <handler
+            class="jp.littleforest.pathtools.handlers.DecreaseFontHandler"
+            commandId="jp.littleforest.pathtools.commands.DecreaseFont">
+      </handler>
+      <handler
+            class="jp.littleforest.pathtools.handlers.ResetFontHandler"
+            commandId="jp.littleforest.pathtools.commands.ResetFont">
       </handler>
    </extension>
    <extension
@@ -176,6 +206,36 @@
                   checkEnabled="true">
             </visibleWhen>
          </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar id="jp.littleforest.pathtools.toolbar">
+            <command
+                commandId="jp.littleforest.pathtools.commands.IncreaseFont"
+                icon="icon/large.png"
+                id="large"
+                label="大きく"
+                style="push"
+                tooltip="大きく">
+            </command>
+            <command
+                commandId="jp.littleforest.pathtools.commands.DecreaseFont"
+                icon="icon/small.png"
+                id="small"
+                label="小さく"
+                style="push"
+                tooltip="小さく">
+            </command>
+            <command
+                commandId="jp.littleforest.pathtools.commands.ResetFont"
+                icon="icon/reset.png"
+                id="reset"
+                label="元に戻す"
+                style="push"
+                tooltip="元に戻す">
+            </command>
+         </toolbar>
       </menuContribution>
    </extension>
    <extension
