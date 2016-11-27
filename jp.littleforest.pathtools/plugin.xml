@@ -78,47 +78,47 @@
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="jp.littleforest.pathtools.handlers.OpenFolderHandler"
+            class="jp.littleforest.pathtools.handlers.path.OpenFolderHandler"
             commandId="jp.littleforest.pathtools.commands.OpenFolder">
       </handler>
       <handler
-            class="jp.littleforest.pathtools.handlers.OpenWorkspaceHandler"
+            class="jp.littleforest.pathtools.handlers.path.OpenWorkspaceHandler"
             commandId="jp.littleforest.pathtools.commands.OpenWorkspace">
       </handler>
       <handler
-            class="jp.littleforest.pathtools.handlers.OpenPromptHandler"
+            class="jp.littleforest.pathtools.handlers.path.OpenPromptHandler"
             commandId="jp.littleforest.pathtools.commands.OpenPrompt">
       </handler>
       <handler
-            class="jp.littleforest.pathtools.handlers.CopyWorkspaceRelativePathHandler"
+            class="jp.littleforest.pathtools.handlers.path.CopyWorkspaceRelativePathHandler"
             commandId="jp.littleforest.pathtools.commands.CopyWorkspaceRelativePath">
       </handler>
       <handler
-            class="jp.littleforest.pathtools.handlers.CopyProjectRelativePathHandler"
+            class="jp.littleforest.pathtools.handlers.path.CopyProjectRelativePathHandler"
             commandId="jp.littleforest.pathtools.commands.CopyProjectRelativePath">
       </handler>
       <handler
-            class="jp.littleforest.pathtools.handlers.CopyPathHandler"
+            class="jp.littleforest.pathtools.handlers.path.CopyPathHandler"
             commandId="jp.littleforest.pathtools.commands.CopyPath">
       </handler>
       <handler
-            class="jp.littleforest.pathtools.handlers.CopyNameHandler"
+            class="jp.littleforest.pathtools.handlers.path.CopyNameHandler"
             commandId="jp.littleforest.pathtools.commands.CopyName">
       </handler>
       <handler
-            class="jp.littleforest.pathtools.handlers.CopyQualifiedNameHandler"
+            class="jp.littleforest.pathtools.handlers.path.CopyQualifiedNameHandler"
             commandId="jp.littleforest.pathtools.commands.CopyQualifiedName">
       </handler>
       <handler
-            class="jp.littleforest.pathtools.handlers.IncreaseFontHandler"
+            class="jp.littleforest.pathtools.handlers.font.IncreaseFontHandler"
             commandId="jp.littleforest.pathtools.commands.IncreaseFont">
       </handler>
       <handler
-            class="jp.littleforest.pathtools.handlers.DecreaseFontHandler"
+            class="jp.littleforest.pathtools.handlers.font.DecreaseFontHandler"
             commandId="jp.littleforest.pathtools.commands.DecreaseFont">
       </handler>
       <handler
-            class="jp.littleforest.pathtools.handlers.ResetFontHandler"
+            class="jp.littleforest.pathtools.handlers.font.ResetFontHandler"
             commandId="jp.littleforest.pathtools.commands.ResetFont">
       </handler>
    </extension>

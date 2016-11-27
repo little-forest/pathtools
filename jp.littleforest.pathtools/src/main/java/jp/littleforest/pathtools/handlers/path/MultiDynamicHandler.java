@@ -6,7 +6,11 @@
  * this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *****************************************************************************/
-package jp.littleforest.pathtools.handlers;
+package jp.littleforest.pathtools.handlers.path;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import jp.littleforest.pathtools.PathToolsPlugin;
 
@@ -16,13 +20,12 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPartSite;
 
 /**
- * メニューを動的に表示するハンドラの基底クラスです。<br />
- * 
  * @author y-komori
+ *
  */
-public abstract class SingleDynamicHandler extends DynamicHandler {
+public abstract class MultiDynamicHandler<E extends IAdaptable> extends DynamicHandler {
 
-    protected Object selected = null;
+    protected List<E> selectedElements = new ArrayList<E>();
 
     protected Class<?> selectedClass = null;
 
@@ -30,10 +33,11 @@ public abstract class SingleDynamicHandler extends DynamicHandler {
      * @see org.eclipse.core.commands.AbstractHandler#isEnabled()
      */
     @Override
+    @SuppressWarnings("unchecked")
     public boolean isEnabled() {
         IWorkbenchPartSite activeSite = PathToolsPlugin.getDefault().getActiveSite();
 
-        this.selected = null;
+        this.selectedElements.clear();
         this.selectedClass = null;
         if (activeSite == null) {
             return false;
@@ -49,12 +53,13 @@ public abstract class SingleDynamicHandler extends DynamicHandler {
         ISelection selection = activeSite.getSelectionProvider().getSelection();
         if (selection != null && selection instanceof IStructuredSelection) {
             IStructuredSelection stSelection = (IStructuredSelection) selection;
-            if (stSelection.size() == 1) {
-                IAdaptable adaptable = (IAdaptable) stSelection.getFirstElement();
-                // 実際の判定はサブクラスで行う
-                enabled = isEnabled(adaptable);
-                if (enabled) {
-                    this.selectedClass = adaptable.getClass();
+            int size = stSelection.size();
+            if (size > 0) {
+                Iterator<IAdaptable> itr = stSelection.iterator();
+                while (itr.hasNext()) {
+                    IAdaptable adaptable = itr.next();
+                    // 実際の判定はサブクラスで行う(いずれかが条件を満たせばメニューを表示する)
+                    enabled |= isEnabled(adaptable);
                 }
             }
         }

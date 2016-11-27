@@ -6,7 +6,7 @@
  * this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *****************************************************************************/
-package jp.littleforest.pathtools.handlers;
+package jp.littleforest.pathtools.handlers.path;
 
 import static jp.littleforest.pathtools.Constants.*;
 import jp.littleforest.pathtools.PathToolsPlugin;

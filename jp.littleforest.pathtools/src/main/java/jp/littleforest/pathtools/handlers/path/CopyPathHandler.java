@@ -6,7 +6,7 @@
  * this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *****************************************************************************/
-package jp.littleforest.pathtools.handlers;
+package jp.littleforest.pathtools.handlers.path;
 
 import static jp.littleforest.pathtools.Constants.*;
 
@@ -15,11 +15,11 @@ import java.util.List;
 import org.eclipse.core.resources.IResource;
 
 /**
- * 指定されたリソースのワークスペース内相対パスをクリップボードにコピーするハンドラです。<br />
- *
+ * 絶対パスをクリップボードにコピーするためのハンドラです。<br />
+ * 
  * @author y-komori
  */
-public class CopyWorkspaceRelativePathHandler extends AbstractPathHandler {
+public class CopyPathHandler extends AbstractPathHandler {
     /* (non-Javadoc)
      * @see jp.littleforest.pathtools.handlers.AbstractPathHandler#getPath(java.util.List)
      */
@@ -27,14 +27,18 @@ public class CopyWorkspaceRelativePathHandler extends AbstractPathHandler {
     protected String getPath(List<IResource> resources) {
         StringBuilder buf = new StringBuilder(128);
         for (IResource resource : resources) {
-            String workspacePath = resource.getWorkspace().getRoot().getLocation()
-                    .toPortableString();
-            String resourcePath = resource.getLocation().toPortableString();
-            String relPath = resourcePath;
-            if (resourcePath.startsWith(workspacePath)) {
-                relPath = resourcePath.substring(workspacePath.length());
-            }
-            buf.append(relPath);
+            String path = resource.getLocation().toOSString();
+            buf.append(path);
+            buf.append(SEP);
+        }
+        return buf.toString();
+    }
+
+    protected String getResourcePath(List<IResource> resources) {
+        StringBuilder buf = new StringBuilder(128);
+        for (IResource resource : resources) {
+            String path = resource.getLocation().toOSString();
+            buf.append(path);
             buf.append(SEP);
         }
         return buf.toString();

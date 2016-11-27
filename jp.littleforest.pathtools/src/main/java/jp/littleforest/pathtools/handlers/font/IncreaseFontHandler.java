@@ -7,7 +7,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  *****************************************************************************/
 
-package jp.littleforest.pathtools.handlers;
+package jp.littleforest.pathtools.handlers.font;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -20,11 +20,11 @@ import jp.littleforest.pathtools.util.EclipseFontUtil;
  * @author y-komori
  *
  */
-public class ResetFontHandler extends AbstractHandler {
+public class IncreaseFontHandler extends AbstractHandler {
     @Override
     public Object execute(ExecutionEvent e) throws ExecutionException {
-        PathToolsPlugin.logInfo("ResetFontHandler:execute");
-        EclipseFontUtil.resetFont();
+        PathToolsPlugin.logInfo("IncreaseFontHandler:execute");
+        EclipseFontUtil.increaseFont();
         return null;
     }
 }
