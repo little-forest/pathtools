@@ -14,11 +14,6 @@ import org.eclipse.core.runtime.preferences.IPreferencesService;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.PreferenceConverter;
 import org.eclipse.swt.graphics.FontData;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.IWorkbenchPartSite;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
 import org.osgi.service.prefs.BackingStoreException;
 import org.osgi.service.prefs.Preferences;
 
@@ -83,25 +78,25 @@ public class EclipseFontUtil {
         }
     }
 
-    private static void changeFont2(int changeBy) {
-        IWorkbenchPartSite site = getActiveSite();
+    // private static void changeFont2(int changeBy) {
+    // IWorkbenchPartSite site = getActiveSite();
+    //
+    // PathToolsPlugin.logInfo("Activesite : " + site.getClass()
+    // .toString());
+    //
+    // if(!(site instanceof PartSite)){
+    // return;
+    // }
+    // PartSite partSite = (PartSite)site;
+    // partSite.getPage().get
+    // }
 
-        PathToolsPlugin.logInfo("Activesite : " + site.getClass()
-                .toString());
-
-        //        if(!(site instanceof PartSite)){
-        //            return;
-        //        }
-        //        PartSite partSite = (PartSite)site;
-        //        partSite.getPage().get
-    }
-
-    private static IWorkbenchPartSite getActiveSite() {
-        IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench()
-                .getActiveWorkbenchWindow();
-        IWorkbenchPage activePage = activeWorkbenchWindow.getActivePage();
-        IWorkbenchPart activePart = activePage.getActivePart();
-        IWorkbenchPartSite site = activePart.getSite();
-        return site;
-    }
+    // private static IWorkbenchPartSite getActiveSite() {
+    // IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench()
+    // .getActiveWorkbenchWindow();
+    // IWorkbenchPage activePage = activeWorkbenchWindow.getActivePage();
+    // IWorkbenchPart activePart = activePage.getActivePart();
+    // IWorkbenchPartSite site = activePart.getSite();
+    // return site;
+    // }
 }
