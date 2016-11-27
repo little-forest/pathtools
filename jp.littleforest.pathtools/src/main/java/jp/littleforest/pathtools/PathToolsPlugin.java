@@ -20,6 +20,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import jp.littleforest.pathtools.util.EclipseFontUtil;
+
 /**
  * The activator class controls the plug-in life cycle
  *
@@ -63,6 +65,7 @@ public class PathToolsPlugin extends AbstractUIPlugin implements IStartup {
     public void stop(BundleContext context) throws Exception {
         plugin = null;
         super.stop(context);
+        logInfo(PLUGIN_ID + " bundle stopped.");
     }
 
     /**
@@ -110,6 +113,7 @@ public class PathToolsPlugin extends AbstractUIPlugin implements IStartup {
     */
     public void earlyStartup() {
         logInfo("Eary startup ok.");
+        EclipseFontUtil.resetFont();
     }
 
     public static void logError(String message) {

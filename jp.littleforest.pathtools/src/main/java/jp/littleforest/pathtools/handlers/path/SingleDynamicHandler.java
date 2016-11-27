@@ -6,11 +6,7 @@
  * this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  *****************************************************************************/
-package jp.littleforest.pathtools.handlers;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+package jp.littleforest.pathtools.handlers.path;
 
 import jp.littleforest.pathtools.PathToolsPlugin;
 
@@ -20,12 +16,13 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbenchPartSite;
 
 /**
+ * メニューを動的に表示するハンドラの基底クラスです。<br />
+ * 
  * @author y-komori
- *
  */
-public abstract class MultiDynamicHandler<E extends IAdaptable> extends DynamicHandler {
+public abstract class SingleDynamicHandler extends DynamicHandler {
 
-    protected List<E> selectedElements = new ArrayList<E>();
+    protected Object selected = null;
 
     protected Class<?> selectedClass = null;
 
@@ -33,11 +30,10 @@ public abstract class MultiDynamicHandler<E extends IAdaptable> extends DynamicH
      * @see org.eclipse.core.commands.AbstractHandler#isEnabled()
      */
     @Override
-    @SuppressWarnings("unchecked")
     public boolean isEnabled() {
         IWorkbenchPartSite activeSite = PathToolsPlugin.getDefault().getActiveSite();
 
-        this.selectedElements.clear();
+        this.selected = null;
         this.selectedClass = null;
         if (activeSite == null) {
             return false;
@@ -53,13 +49,12 @@ public abstract class MultiDynamicHandler<E extends IAdaptable> extends DynamicH
         ISelection selection = activeSite.getSelectionProvider().getSelection();
         if (selection != null && selection instanceof IStructuredSelection) {
             IStructuredSelection stSelection = (IStructuredSelection) selection;
-            int size = stSelection.size();
-            if (size > 0) {
-                Iterator<IAdaptable> itr = stSelection.iterator();
-                while (itr.hasNext()) {
-                    IAdaptable adaptable = itr.next();
-                    // 実際の判定はサブクラスで行う(いずれかが条件を満たせばメニューを表示する)
-                    enabled |= isEnabled(adaptable);
+            if (stSelection.size() == 1) {
+                IAdaptable adaptable = (IAdaptable) stSelection.getFirstElement();
+                // 実際の判定はサブクラスで行う
+                enabled = isEnabled(adaptable);
+                if (enabled) {
+                    this.selectedClass = adaptable.getClass();
                 }
             }
         }
