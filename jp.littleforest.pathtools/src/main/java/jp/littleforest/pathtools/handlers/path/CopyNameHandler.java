@@ -10,7 +10,6 @@ package jp.littleforest.pathtools.handlers.path;
 
 import static jp.littleforest.pathtools.Constants.*;
 import static jp.littleforest.pathtools.util.IResourceUtil.*;
-import jp.littleforest.pathtools.util.SWTUtil;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -27,9 +26,12 @@ import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.IType;
 
+import jp.littleforest.pathtools.util.SVNUtil;
+import jp.littleforest.pathtools.util.SWTUtil;
+
 /**
  * パッケージ名やクラス名をクリップボードにコピーするためのハンドラです。<br />
- * 
+ *
  * @author y-komori
  */
 public class CopyNameHandler extends MultiDynamicHandler<IAdaptable> {
@@ -111,6 +113,8 @@ public class CopyNameHandler extends MultiDynamicHandler<IAdaptable> {
                 // その他
                 name = e.toString();
             }
+
+            buf.append(SVNUtil.getRevisionString(e));
             buf.append(name);
             buf.append(SEP);
         }

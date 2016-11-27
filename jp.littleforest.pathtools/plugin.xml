@@ -98,7 +98,7 @@
             commandId="jp.littleforest.pathtools.commands.CopyProjectRelativePath">
       </handler>
       <handler
-            class="jp.littleforest.pathtools.handlers.path.CopyPathHandler"
+            class="jp.littleforest.pathtools.handlers.path.CopyAbsolutePathHandler"
             commandId="jp.littleforest.pathtools.commands.CopyPath">
       </handler>
       <handler

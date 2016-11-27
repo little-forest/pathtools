@@ -14,6 +14,8 @@ import java.util.List;
 
 import org.eclipse.core.resources.IResource;
 
+import jp.littleforest.pathtools.util.SVNUtil;
+
 /**
  * 指定されたリソースのワークスペース内相対パスをクリップボードにコピーするハンドラです。<br />
  *
@@ -34,6 +36,7 @@ public class CopyWorkspaceRelativePathHandler extends AbstractPathHandler {
             if (resourcePath.startsWith(workspacePath)) {
                 relPath = resourcePath.substring(workspacePath.length());
             }
+            buf.append(SVNUtil.getRevisionString(resource));
             buf.append(relPath);
             buf.append(SEP);
         }

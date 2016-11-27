@@ -19,7 +19,7 @@ import org.eclipse.core.resources.IResource;
  * 
  * @author y-komori
  */
-public class CopyPathHandler extends AbstractPathHandler {
+public class CopyAbsolutePathHandler extends AbstractPathHandler {
     /* (non-Javadoc)
      * @see jp.littleforest.pathtools.handlers.AbstractPathHandler#getPath(java.util.List)
      */
