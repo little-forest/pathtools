@@ -14,9 +14,11 @@ import java.util.List;
 
 import org.eclipse.core.resources.IResource;
 
+import jp.littleforest.pathtools.util.SVNUtil;
+
 /**
  * 指定されたリソースのプロジェクト内相対パスをクリップボードにコピーするハンドラです。<br />
- * 
+ *
  * @author y-komori
  */
 public class CopyProjectRelativePathHandler extends AbstractPathHandler {
@@ -30,6 +32,7 @@ public class CopyProjectRelativePathHandler extends AbstractPathHandler {
             String projectPath = resource.getProject().getLocation().toPortableString();
             String resourcePath = resource.getLocation().toPortableString();
             String relPath = resourcePath.substring(projectPath.length());
+            buf.append(SVNUtil.getRevisionString(resource));
             buf.append(relPath);
             buf.append(SEP);
         }
