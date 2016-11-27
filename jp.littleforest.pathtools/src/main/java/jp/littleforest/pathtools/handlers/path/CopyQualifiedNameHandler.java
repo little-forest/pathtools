@@ -10,8 +10,6 @@ package jp.littleforest.pathtools.handlers.path;
 
 import static jp.littleforest.pathtools.Constants.*;
 import static jp.littleforest.pathtools.util.IResourceUtil.*;
-import jp.littleforest.pathtools.util.SWTUtil;
-import jp.littleforest.util.lang.StringUtil;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -24,6 +22,10 @@ import org.eclipse.jdt.core.IMethod;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.Signature;
+
+import jp.littleforest.pathtools.util.SVNUtil;
+import jp.littleforest.pathtools.util.SWTUtil;
+import jp.littleforest.util.lang.StringUtil;
 
 /**
  * 修飾名をクリップボードにコピーするためのハンドラです。<br />
@@ -53,6 +55,7 @@ public class CopyQualifiedNameHandler extends MultiDynamicHandler<IJavaElement> 
         StringBuilder buf = new StringBuilder(128);
         for (IJavaElement e : selectedElements) {
             String fqcn = getQualifiedName(e);
+            buf.append(SVNUtil.getRevisionString(e.getResource()));
             buf.append(fqcn);
             buf.append(SEP);
         }
