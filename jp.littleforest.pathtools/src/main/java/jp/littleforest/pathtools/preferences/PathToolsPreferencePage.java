@@ -10,6 +10,7 @@ package jp.littleforest.pathtools.preferences;
 
 import static jp.littleforest.pathtools.Constants.*;
 
+import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.StringFieldEditor;
@@ -47,6 +48,7 @@ IWorkbenchPreferencePage {
      */
     @Override
     protected void createFieldEditors() {
+        addField(new BooleanFieldEditor(P_ENABLE_OPEN_CMD, "OpenFolderを使用する", getFieldEditorParent()));
         addField(new StringFieldEditor(P_OPEN_FOLDER_CMD, "「フォルダを開く」のコマンド", getFieldEditorParent()));
         addField(new StringFieldEditor(P_OPEN_PROMPT_CMD, "「コマンドプロンプトを開く」のコマンド",
                 getFieldEditorParent()));

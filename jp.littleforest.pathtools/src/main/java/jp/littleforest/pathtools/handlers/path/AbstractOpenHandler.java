@@ -8,10 +8,9 @@
  *****************************************************************************/
 package jp.littleforest.pathtools.handlers.path;
 
-import java.io.File;
+import static jp.littleforest.pathtools.Constants.*;
 
-import jp.littleforest.pathtools.PathToolsPlugin;
-import jp.littleforest.pathtools.util.IResourceUtil;
+import java.io.File;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -23,9 +22,12 @@ import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 
+import jp.littleforest.pathtools.PathToolsPlugin;
+import jp.littleforest.pathtools.util.IResourceUtil;
+
 /**
  * ツリーで選択された要素を開くコマンドハンドラの基底クラスです。<br />
- * 
+ *
  * @author y-komori
  */
 public abstract class AbstractOpenHandler extends SingleDynamicHandler {
@@ -57,6 +59,12 @@ public abstract class AbstractOpenHandler extends SingleDynamicHandler {
      */
     @Override
     protected boolean isEnabled(IAdaptable adaptable) {
+        // disable if specified in preference page.
+        boolean enableOpenCmd = PathToolsPlugin.getDefault().getPreferenceStore().getBoolean(P_ENABLE_OPEN_CMD);
+        if(!enableOpenCmd){
+            return false;
+        }
+
         boolean enabled = false;
         if (adaptable instanceof IResource) {
             this.selected = adaptable;
@@ -133,7 +141,7 @@ public abstract class AbstractOpenHandler extends SingleDynamicHandler {
     /**
      * 実行用コマンドラインを返します。<br />
      * サブクラスで実装してください。<br />
-     * 
+     *
      * @return コマンドライン
      */
     abstract protected String getCommandLine();
