@@ -134,7 +134,7 @@
          <command
                commandId="jp.littleforest.pathtools.commands.OpenFolder"
                icon="icon/folder_explore.png"
-               label="フォルダを開く"
+               label="%menu.openFolder"
                style="push">
             <visibleWhen
                   checkEnabled="true">
@@ -143,7 +143,7 @@
          <command
                commandId="jp.littleforest.pathtools.commands.OpenPrompt"
                icon="icon/application_xp_terminal.png"
-               label="コマンドプロンプトを開く"
+               label="%menu.openPrompt"
                style="push">
             <visibleWhen
                   checkEnabled="true">
@@ -154,7 +154,7 @@
                label="PathTools">
             <command
                   commandId="jp.littleforest.pathtools.commands.CopyWorkspaceRelativePath"
-                  label="ワークスペース相対パスをコピー"
+                  label="%menu.copyWorkspaceRelativePath"
                   style="push">
                <visibleWhen
                      checkEnabled="true">
@@ -162,7 +162,7 @@
             </command>
             <command
                   commandId="jp.littleforest.pathtools.commands.CopyProjectRelativePath"
-                  label="プロジェクト相対パスをコピー"
+                  label="%menu.copyProjectRelativePath"
                   style="push">
                <visibleWhen
                      checkEnabled="true">
@@ -170,7 +170,7 @@
             </command>
             <command
                   commandId="jp.littleforest.pathtools.commands.CopyQualifiedName"
-                  label="修飾名をコピー"
+                  label="%menu.copyQualifiedName"
                   style="push">
                <visibleWhen
                      checkEnabled="true">
@@ -178,7 +178,7 @@
             </command>
             <command
                   commandId="jp.littleforest.pathtools.commands.CopyName"
-                  label="名前をコピー"
+                  label="%menu.copyName"
                   style="push">
                <visibleWhen
                      checkEnabled="true">
@@ -186,7 +186,7 @@
             </command>
             <command
                   commandId="jp.littleforest.pathtools.commands.CopyPath"
-                  label="絶対パスをコピー"
+                  label="%menu.copyAbsolutePath"
                   style="push">
                <visibleWhen
                      checkEnabled="true">
@@ -200,7 +200,7 @@
          <command
                commandId="jp.littleforest.pathtools.commands.OpenWorkspace"
                icon="icon/folder_database.png"
-               label="ワークスペースを開く"
+               label="%menu.openWorkspace"
                style="push">
             <visibleWhen
                   checkEnabled="true">
@@ -215,25 +215,25 @@
                 commandId="jp.littleforest.pathtools.commands.IncreaseFont"
                 icon="icon/large.png"
                 id="large"
-                label="大きく"
+                label="%menu.largerFont"
                 style="push"
-                tooltip="大きく">
+                tooltip="%menu.largerFont">
             </command>
             <command
                 commandId="jp.littleforest.pathtools.commands.DecreaseFont"
                 icon="icon/small.png"
                 id="small"
-                label="小さく"
+                label="%menu.smallerFont"
                 style="push"
-                tooltip="小さく">
+                tooltip="%menu.smallerFont">
             </command>
             <command
                 commandId="jp.littleforest.pathtools.commands.ResetFont"
                 icon="icon/reset.png"
                 id="reset"
-                label="元に戻す"
+                label="%menu.resetFont"
                 style="push"
-                tooltip="元に戻す">
+                tooltip="%menu.resetFont">
             </command>
          </toolbar>
       </menuContribution>

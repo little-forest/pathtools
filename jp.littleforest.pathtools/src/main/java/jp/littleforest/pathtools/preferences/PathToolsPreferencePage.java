@@ -17,6 +17,7 @@ import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
+import jp.littleforest.pathtools.Messages;
 import jp.littleforest.pathtools.PathToolsPlugin;
 
 /**
@@ -34,7 +35,7 @@ IWorkbenchPreferencePage {
         super(GRID);
         IPreferenceStore store = PathToolsPlugin.getDefault().getPreferenceStore();
         setPreferenceStore(store);
-        setDescription("");
+        setDescription(""); //$NON-NLS-1$
     }
 
     /* (non-Javadoc)
@@ -48,9 +49,9 @@ IWorkbenchPreferencePage {
      */
     @Override
     protected void createFieldEditors() {
-        addField(new BooleanFieldEditor(P_ENABLE_OPEN_CMD, "OpenFolderを使用する", getFieldEditorParent()));
-        addField(new StringFieldEditor(P_OPEN_FOLDER_CMD, "「フォルダを開く」のコマンド", getFieldEditorParent()));
-        addField(new StringFieldEditor(P_OPEN_PROMPT_CMD, "「コマンドプロンプトを開く」のコマンド",
+        addField(new BooleanFieldEditor(P_ENABLE_OPEN_CMD, Messages.PATHTOOLS_DISPLAY_OPEN_IN_MENU, getFieldEditorParent()));
+        addField(new StringFieldEditor(P_OPEN_FOLDER_CMD, Messages.PATHTOOLS_OPEN_FOLDER_CMD, getFieldEditorParent()));
+        addField(new StringFieldEditor(P_OPEN_PROMPT_CMD, Messages.PATHTOOLS_OPEN_PROMPT_CMD,
                 getFieldEditorParent()));
     }
 
