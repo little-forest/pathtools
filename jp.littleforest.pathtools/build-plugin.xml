@@ -4,7 +4,7 @@
     必ずビルド時の JRE タブで「ワークスペースと同じJREで実行」を選択すること。
 -->
 <project default="plugin_export" name="build">
-  <property name="version" value="0.7.3"/>
+  <property name="version" value="0.7.2"/>
   <target name="plugin_export">
     <pde.exportPlugins
        destination="${basedir}\..\releases"
