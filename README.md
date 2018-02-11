@@ -21,9 +21,9 @@ eclipse 上でパス操作に関する、便利機能をいくつか提供する
 
 # スクリーンショット
 
-![コンテキストメニュー](https://raw.githubusercontent.com/little-forest/pathtools/images/images/pathtools.png)
+![コンテキストメニュー](https://raw.githubusercontent.com/little-forest/pathtools/images/images/pathtools.png "コンテキストメニュー")
 
-![設定ダイアログ](https://raw.githubusercontent.com/little-forest/pathtools/images/images/preference.png)
+![設定ダイアログ](https://raw.githubusercontent.com/little-forest/pathtools/images/images/preference.png "設定ダイアログ")
 
-![ツールバー](https://raw.githubusercontent.com/little-forest/pathtools/images/images/toolbar.png)
+![ツールバー](https://raw.githubusercontent.com/little-forest/pathtools/images/images/toolbar.png "ツールバー")
 
